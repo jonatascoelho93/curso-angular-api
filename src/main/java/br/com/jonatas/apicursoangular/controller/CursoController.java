@@ -67,7 +67,7 @@ public class CursoController {
 				logger.info("Codigo de curso não cadastrado: " + codigo);
 				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			}
-			cursoRepository.deleteById(curso.get().getId());
+			cursoRepository.deleteById(curso.get().getCodigo());
 			return new ResponseEntity<>(HttpStatus.OK);
 		} catch (Exception e) {
 			logger.error("Erro na exclusão de curso por codigo: " + e);
@@ -96,7 +96,7 @@ public class CursoController {
 				logger.info("Codigo de curso não cadastrado: " + codigo);
 				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			}
-			curso.setId(entity.get().getId());
+			curso.setCodigo(entity.get().getCodigo());
 			cursoRepository.save(curso);
 			return new ResponseEntity<>(HttpStatus.OK);
 
